@@ -1,0 +1,15 @@
+{
+  "key": "china_3",
+  "type": "task",
+  "missionId": "china",
+  "taskType": "answer",
+  "config": {
+    "question": "Что у тебя появилось в парке мечты?",
+    "options": ["Хвостик (кхм)", "Ушки", "Мазоли"],
+    "buttonText": "Ответить",
+    "correctAnswer": "Ушки",
+    "errorText": "Ответ неверный"
+  },
+  "onSuccess": "china_res_1",
+  "completesMission": true
+}

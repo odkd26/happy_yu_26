@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#191421">
+  <title>Метка — поиск коробки</title>
+  <script>
+    // КАЛИБРОВКА. 1 единица = ширина напечатанной этикетки.
+    // Начало координат — её центр. X вправо, Y вверх, Z к наблюдателю.
+    // Пример для этикетки на передней стенке: position.z = -depth / 2.
+    const BOX = {
+      width: 1.65,
+      height: 1.05,
+      depth: 0.8,
+      position: { x: 0, y: 0, z: -0.4 }
+    };
+  </script>
+  <style>
+    :root {
+      color-scheme: dark;
+      --line: #f3a0c74d;
+      font-family: var(--font-family);
+      color: var(--color-text);
+      background: var(--color-background);
+    }
+    * { box-sizing: border-box }
+    [hidden] { display: none !important }
+    body { margin: 0 }
+    button { font: inherit; cursor: pointer; touch-action: manipulation }
+    button:focus-visible { outline: 3px solid var(--color-gold); outline-offset: 5px }
+    #intro {
+      position: fixed; inset: 0; z-index: 3; overflow-y: auto;
+      background: radial-gradient(ellipse at 68% 50%, #472747, transparent 63%), var(--color-background);
+    }
+    .shell {
+      min-height: 100%; max-width: 1330px; margin: auto;
+      padding: max(24px, env(safe-area-inset-top)) max(5.5vw, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(5.5vw, env(safe-area-inset-left));
+      display: flex; flex-direction: column;
+    }
+    header, footer, .brand, .mode, .privacy, .cta, .hud-status {
+      display: flex; align-items: center;
+    }
+    header { justify-content: space-between; padding-bottom: 22px; border-bottom: 1px solid var(--line) }
+    .brand { gap: 12px; font-size: 1.62rem; font-weight: 720; letter-spacing: -.06em }
+    .brand-mark, .scan-icon { display: inline-block; position: relative; flex: none; width: 28px; height: 28px; color: var(--color-pink) }
+    .brackets {
+      background:
+        linear-gradient(currentColor,currentColor) left top / 36% 2px,
+        linear-gradient(currentColor,currentColor) left top / 2px 36%,
+        linear-gradient(currentColor,currentColor) right top / 36% 2px,
+        linear-gradient(currentColor,currentColor) right top / 2px 36%,
+        linear-gradient(currentColor,currentColor) left bottom / 36% 2px,
+        linear-gradient(currentColor,currentColor) left bottom / 2px 36%,
+        linear-gradient(currentColor,currentColor) right bottom / 36% 2px,
+        linear-gradient(currentColor,currentColor) right bottom / 2px 36%;
+      background-repeat: no-repeat;
+    }
+    .brand-mark::after, .scan-icon::after { content: ""; position: absolute; inset: 32%; background: currentColor }
+    .mode, .caption { font: 500 .81rem/1.3 "SFMono-Regular", Consolas, monospace; letter-spacing: .08em }
+    .mode { gap: 9px; color: var(--color-text-secondary) }
+    .mode::before { content: ""; width: 15px; border-top: 1px solid var(--color-pink) }
+    main {
+      display: grid; grid-template-columns: 1fr 1.1fr; align-items: center; gap: clamp(32px, 6vw, 98px);
+      flex: 1; padding-block: clamp(40px, 7vh, 85px);
+    }
+    h1 { margin: 0; font-size: clamp(3.2rem, 6.7vw, 6.7rem); font-weight: 650; letter-spacing: -.07em; line-height: .96 }
+    h1 span { color: var(--color-pink) }
+    .description { color: var(--color-text-secondary); line-height: 1.6; font-size: clamp(1rem, 1.35vw, 1.15rem); max-width: 23em; margin: 25px 0 32px }
+    .cta { justify-content: center; gap: 13px; border: 1px solid var(--color-gold); border-radius: .45rem; background: var(--color-gold); color: var(--ink); padding: 18px 26px; font-weight: 670; font-size: 1.05rem }
+    .cta:hover:not(:disabled) { filter: brightness(1.09) }
+    .cta:disabled { cursor: progress; opacity: .76 }
+    .scan-icon { width: 19px; height: 19px; color: inherit }
+    .notice { margin: 16px 0 0; max-width: 32em; line-height: 1.5; color: var(--color-gold) }
+    figure { position: relative; margin: 0; aspect-ratio: 1.12; isolation: isolate; overflow: hidden; border-radius: 22px; border: 1px solid var(--line);
+      background: radial-gradient(ellipse at 52% 50%, #472747, var(--color-surface) 75%);
+    }
+    figure::before { content: ""; position: absolute; inset: 0; opacity: .48; background-image: linear-gradient(var(--line) 1px, transparent 1px),linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 29px 29px }
+    .caption { position: absolute; bottom: 20px; left: 22px; display: flex; align-items: center; gap: 10px; color: var(--color-text-secondary) }
+    .caption::before { content: ""; width: 21px; height: 10px; background: repeating-linear-gradient(90deg, currentColor 0 2px,transparent 2px 4px,currentColor 4px 5px,transparent 5px 7px) }
+    .frame { position: absolute; inset: 14% 12% 18%; color: var(--color-pink); background-size: 18px 2px,2px 18px,18px 2px,2px 18px,18px 2px,2px 18px,18px 2px,2px 18px }
+    .parcel { position: absolute; left: calc(50% - 22px); top: calc(48% - 121px); width: 0; height: 0; transform: scale(1.13) }
+    .parcel::before { content: ""; position: absolute; left: -85px; top: 170px; width: 210px; height: 75px; background: var(--ink); filter: blur(20px); opacity: .7; border-radius: 50% }
+    .face { position: absolute; overflow: hidden; transform-origin: 0 0; width: 148px; height: 110px; box-shadow: inset 0 0 0 1.4px var(--line) }
+    .face::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .16; background: repeating-linear-gradient(88deg, transparent 0 2px,#422c19 3px,transparent 4px) }
+    .lid { height: 148px; transform: matrix(.94,.39,-.64,.52,0,0); background: linear-gradient(120deg,#d9ba84,#bb945d) }
+    .front { transform: matrix(.94,.39,0,1,-94.72,76.96); background: linear-gradient(115deg,#c7a16b,#b08b58) }
+    .side { transform: matrix(.64,-.52,0,1,44.4,134.68); background: linear-gradient(135deg,#9b794b,#80623f) }
+    .lid::before, .front::before { content: ""; position: absolute; left: 40%; width: 22%; top: 0; height: 100%; background: linear-gradient(90deg,#d8c398,#cdb58e 48%,#8d7756 50%,#d1ba91 52%,#dbc69e); opacity: .85 }
+    .front::before { height: 25% }
+    .sticker { position: absolute; left: 19px; bottom: 16px; width: 57px; height: 38px; background: #efe7d2; border-radius: 2px; padding: 6px }
+    .sticker::before { content: ""; display: block; width: 35%; height: 3px; margin-bottom: 5px; background: #554f43 }
+    .barcode { display: block; height: 15px; background: repeating-linear-gradient(90deg,#35362c 0 1px,transparent 1px 3px,#35362c 3px 6px,transparent 6px 8px,#35362c 8px 10px,transparent 10px 11px) }
+    footer { border-top: 1px solid var(--line); padding-top: 18px; color: var(--color-text-secondary); font-size: .88rem }
+    .privacy { gap: 10px }
+    .camera-icon { position: relative; width: 19px; height: 13px; border: 1.5px solid currentColor; border-radius: 3px }
+    .camera-icon::after { content: ""; position: absolute; width: 5px; height: 5px; border: 1px solid currentColor; border-radius: 50%; left: 5px; top: 2px }
+    #stage { position: fixed; inset: 0; isolation: isolate; overflow: hidden; background: var(--ink) }
+    #stage a-scene { position: absolute; inset: 0 }
+    #hud { position: fixed; inset: 0; z-index: 2; pointer-events: none; padding: max(18px, env(safe-area-inset-top)) max(18px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(18px, env(safe-area-inset-left)); display: flex; flex-direction: column; align-items: center; justify-content: space-between }
+    #close { align-self: flex-end; color: var(--color-text); border: 1px solid var(--line); border-radius: 24px; padding: 12px 18px; background: var(--color-surface); pointer-events: auto }
+    .hud-status { gap: 10px; color: var(--color-text); background: var(--color-surface); border: 1px solid var(--line); border-radius: 14px; padding: 15px 20px; text-align: center; line-height: 1.4 }
+    .hud-status.found { background: var(--color-pink); color: var(--ink); font-weight: 650 }
+    #guide { width: min(76vw, 440px); aspect-ratio: 2; color: var(--color-pink); background-size: 26px 2px,2px 26px,26px 2px,2px 26px,26px 2px,2px 26px,26px 2px,2px 26px; filter: drop-shadow(0 1px 2px var(--ink)) }
+    @media (max-width: 720px) {
+      .shell { max-width: 540px; padding-inline: max(22px,env(safe-area-inset-left)) max(22px,env(safe-area-inset-right)) }
+      header { padding-bottom: 16px } .brand { font-size: 1.45rem }
+      main { grid-template-columns: 1fr; align-content: center; gap: 24px; padding-block: 23px 28px }
+      figure { grid-row: 1; aspect-ratio: 1.58 }
+      .parcel { transform: scale(.71); top: calc(48% - 86px); left: calc(50% - 16px) }
+      .frame { inset: 10% 12% 17% }
+      .caption { bottom: 9px; left: 14px }
+      h1 { font-size: clamp(2.9rem,11vw,3.8rem) } h1 br { display: none }
+      .description { margin: 12px 0 22px } .cta { width: 100% }
+      footer { padding-top: 15px }
+    }
+    @media (min-width: 721px) and (max-width: 950px) { .parcel { transform: scale(.84); top: calc(48% - 102px) } }
+    .quest-embed header, .quest-embed footer, .quest-embed figure { display: none }
+    .quest-embed .shell { padding: 20px; max-width: 32rem }
+    .quest-embed main { display: flex; justify-content: center; padding: 0 }
+    .quest-embed h1 { font-size: clamp(2rem, 8vw, 3rem) }
+  </style>
+  <script type="module" crossorigin src="../assets/index-Bi5vG_Kh.js"></script>
+  <link rel="modulepreload" crossorigin href="../assets/modulepreload-polyfill-B5Qt9EMX.js">
+  <link rel="stylesheet" crossorigin href="../assets/index-CdcQSuvI.css">
+</head>
+<body>
+  <div id="intro">
+    <div class="shell">
+      <header>
+        <div class="brand"><i aria-hidden="true" class="brackets brand-mark"></i>Метка</div>
+        <div class="mode">WebAR</div>
+      </header>
+      <main>
+        <section>
+          <h1>Найдите<br> коробку<span>.</span></h1>
+          <p class="description">Наведите камеру на этикетку. Подсветка покажет, какую коробку взять.</p>
+          <button type="button" class="cta" id="start" disabled><i class="brackets scan-icon" aria-hidden="true"></i><span>Найти коробку</span></button>
+          <p id="notice" class="notice" role="status">Подготовка сканера…</p>
+        </section>
+        <figure aria-label="Пример коробки с этикеткой в рамке сканера">
+          <div class="frame brackets"></div>
+          <div class="parcel" aria-hidden="true">
+            <div class="face lid"></div><div class="face side"></div>
+            <div class="face front"><i class="sticker"><i class="barcode"></i></i></div>
+          </div>
+          <figcaption class="caption">Этикетка на коробке</figcaption>
+        </figure>
+      </main>
+      <footer><span class="privacy"><i class="camera-icon" aria-hidden="true"></i>Камера включится после нажатия</span></footer>
+    </div>
+  </div>
+
+  <div id="stage"></div>
+  <div id="hud" hidden>
+    <button id="close" type="button">Закрыть</button>
+    <div class="brackets" id="guide" hidden></div>
+    <div class="hud-status" id="status" role="status"></div>
+  </div>
+
+  <template id="scene-template">
+    <a-scene mindar-image="autoStart: false; maxTrack: 1; uiLoading: no; uiScanning: no; uiError: no"
+      renderer="alpha: true; antialias: false; colorManagement: true"
+      loading-screen="enabled: false" xr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+      <a-camera position="0 0 0" look-controls="enabled: false" wasd-controls="enabled: false"></a-camera>
+      <a-entity mindar-image-target="targetIndex: 0">
+        <a-entity id="model">
+          <a-box material="shader: flat; opacity: 0.55; transparent: true; depthWrite: false"></a-box>
+          <a-entity id="arrow-base">
+            <a-entity id="arrow">
+              <a-cone rotation="0 0 180" radius-bottom="0.11" radius-top="0" height="0.17" material="shader: flat"></a-cone>
+              <a-cylinder position="0 0.12 0" radius="0.038" height="0.14" material="shader: flat"></a-cylinder>
+            </a-entity>
+          </a-entity>
+        </a-entity>
+      </a-entity>
+    </a-scene>
+  </template>
+</body>
+</html>

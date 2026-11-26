@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "china_3",
+  "name": "china_3",
+  "original": "china_3.webp",
+  "preview": "china_3.webp",
+  "width": 941,
+  "height": 1672,
+  "capabilities": {
+    "parallax": false,
+    "cameraMotion": true
+  },
+  "layers": [
+    {
+      "id": "background",
+      "src": "china_3.webp",
+      "depth": 0,
+      "zIndex": 0
+    }
+  ],
+  "defaults": {
+    "durationMs": 3000,
+    "intensity": 0.5,
+    "parallaxEnabled": false,
+    "cameraMotionEnabled": true,
+    "showEditionLabel": 1,
+    "editionLabelCorner": "LT",
+    "camera": {
+      "mode": "slow-zoom-in",
+      "zoomFrom": 1,
+      "zoomTo": 1.05,
+      "maxShiftPercent": 3
+    }
+  }
+}

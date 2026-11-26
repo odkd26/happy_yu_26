@@ -1,0 +1,12 @@
+{
+  "key": "man_2",
+  "type": "task",
+  "missionId": "man",
+  "taskType": "ar-marker",
+  "config": {
+    "scanner": "../../legacy/index.html",
+    "buttonText": "Обнаружено"
+  },
+  "onSuccess": "man_info_2",
+  "completesMission": true
+}

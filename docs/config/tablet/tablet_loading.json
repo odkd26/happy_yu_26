@@ -1,0 +1,22 @@
+{
+  "key": "tablet_loading",
+  "type": "loading",
+  "missionId": "tablet",
+  "scenes": [
+    {
+      "manifest": "../../assets/isa/tablet/tablet_1.json"
+    },
+    {
+      "manifest": "../../assets/isa/tablet/tablet_2.json"
+    }
+  ],
+  "loader": {
+    "messages": [
+      "Подготовка маршрута…",
+      "Загрузка сцены…"
+    ],
+    "completedMessage": "MISSION READY",
+    "showPercentage": true
+  },
+  "onComplete": "tablet"
+}

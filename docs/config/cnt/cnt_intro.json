@@ -1,0 +1,9 @@
+{
+  "key": "cnt_intro",
+  "type": "description",
+  "missionId": "cnt",
+  "title": "Жизнь по расчету",
+  "description": "Сейчас мы узнаем, насколько ты стала расчётливой к своим годам.",
+  "buttonText": "Я готова",
+  "onContinue": "cnt_t_1"
+}

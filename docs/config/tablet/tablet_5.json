@@ -1,0 +1,12 @@
+{
+  "key": "tablet_5",
+  "type": "task",
+  "missionId": "tablet",
+  "taskType": "instruction",
+  "config": {
+    "description": "Ой, ошибся (. Тебе туда, где лежат твои игрушки",
+    "buttonText": "На месте"
+  },
+  "onSuccess": "tablet_res_6",
+  "completesMission": true
+}

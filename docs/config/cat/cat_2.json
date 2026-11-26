@@ -1,0 +1,13 @@
+{
+  "key": "cat_2",
+  "type": "task",
+  "missionId": "cat",
+  "taskType": "answer",
+  "config": {
+    "question": "Твой возраст мы знаем, но знаешь ли ты мой возраст?",
+    "buttonText": "Ответить",
+    "correctAnswer": "14",
+    "errorText": "Ответ неверный"
+  },
+  "onSuccess": "cat_info_2"
+}

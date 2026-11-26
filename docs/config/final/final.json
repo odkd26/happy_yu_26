@@ -1,0 +1,15 @@
+{
+  "key": "final",
+  "type": "loading",
+  "scenes": [
+    { "manifest": "../../assets/isa/final/final_1.json" },
+    { "manifest": "../../assets/isa/final/final_2.json" },
+    { "manifest": "../../assets/isa/final/final_3.json" }
+  ],
+  "loader": {
+    "messages": ["День подходит к концу…"],
+    "completedMessage": "День подходит к концу…",
+    "showPercentage": true
+  },
+  "onComplete": "stat"
+}

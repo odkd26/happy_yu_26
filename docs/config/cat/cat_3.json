@@ -1,0 +1,14 @@
+{
+  "key": "cat_3",
+  "type": "task",
+  "missionId": "cat",
+  "taskType": "answer",
+  "config": {
+    "question": "Что я люблю больше всего?",
+    "options": ["Ходить по тебе", "Подушечки", "Играть"],
+    "buttonText": "Ответить",
+    "correctAnswer": "Ходить по тебе",
+    "errorText": "Ответ неверный"
+  },
+  "onSuccess": "cat_4"
+}

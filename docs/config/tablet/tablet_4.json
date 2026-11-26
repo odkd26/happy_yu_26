@@ -1,0 +1,11 @@
+{
+  "key": "tablet_4",
+  "type": "task",
+  "missionId": "tablet",
+  "taskType": "instruction",
+  "config": {
+    "description": "Отправляйся туда, где лежат игрушки Алисы",
+    "buttonText": "На месте"
+  },
+  "onSuccess": "tablet_5"
+}

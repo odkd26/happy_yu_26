@@ -1,0 +1,29 @@
+{
+  "key": "map",
+  "type": "quest-map",
+  "title": "SPECIAL OPERATIONS MAP",
+  "image": "../assets/map/city-grid.svg",
+  "start": [21.2, 91],
+  "locations": [],
+  "profile": {
+    "image": "../assets/intro/portrait.webp",
+    "name": "Главная героиня",
+    "status": "Birthday Queen"
+  },
+  "animation": {
+    "enabled": true,
+    "durationMs": 1500,
+    "animateRoute": true,
+    "animateCharacter": true,
+    "showMissionPassed": true
+  },
+  "initialVisit": {
+    "animateToFirstMission": true,
+    "durationMs": 6000,
+    "onComplete": "cnt_loading"
+  },
+  "autoContinue": true,
+  "passed": "MISSION PASSED",
+  "progressLabel": "Миссии",
+  "emptyText": "Задания скоро появятся"
+}

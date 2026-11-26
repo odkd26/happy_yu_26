@@ -1,0 +1,8 @@
+{
+  "key": "stat",
+  "type": "statistics",
+  "title": "Статистика прохождения",
+  "totalLabel": "Общее время",
+  "buttonText": "Завершить день",
+  "onContinue": "last"
+}

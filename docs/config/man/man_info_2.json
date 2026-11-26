@@ -1,0 +1,9 @@
+{
+  "key": "man_info_2",
+  "type": "result",
+  "missionId": "man",
+  "description": "Понравилось получать подарки? Хочешь продолжить?",
+  "buttonText": "Да",
+  "decline": { "buttonText": "Нет", "message": "Опция недоступна" },
+  "onContinue": "map"
+}

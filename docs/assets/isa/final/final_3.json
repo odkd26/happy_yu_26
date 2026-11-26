@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "final_3",
+  "name": "final_3",
+  "original": "final_3.webp",
+  "preview": "final_3.webp",
+  "width": 1080,
+  "height": 1440,
+  "capabilities": {
+    "parallax": false,
+    "cameraMotion": true
+  },
+  "layers": [
+    {
+      "id": "background",
+      "src": "final_3.webp",
+      "depth": 0,
+      "zIndex": 0
+    }
+  ],
+  "defaults": {
+    "durationMs": 3000,
+    "intensity": 0.5,
+    "parallaxEnabled": false,
+    "cameraMotionEnabled": true,
+    "showEditionLabel": 1,
+    "editionLabelCorner": "LT",
+    "camera": {
+      "mode": "slow-zoom-in",
+      "zoomFrom": 1,
+      "zoomTo": 1.05,
+      "maxShiftPercent": 3
+    }
+  }
+}

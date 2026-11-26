@@ -1,0 +1,1 @@
+import"./modulepreload-polyfill-B5Qt9EMX.js";try{window.localStorage.clear(),window.location.replace("./")}catch{const t=document.getElementById("reset-status");t&&(t.textContent="Не удалось сбросить прогресс. Проверьте доступ к локальному хранилищу в браузере и обновите страницу.")}

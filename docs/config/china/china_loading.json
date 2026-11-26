@@ -1,0 +1,16 @@
+{
+  "key": "china_loading",
+  "type": "loading",
+  "missionId": "china",
+  "scenes": [
+    { "manifest": "../../assets/isa/china/china_1.json" },
+    { "manifest": "../../assets/isa/china/china_2.json" },
+    { "manifest": "../../assets/isa/china/china_3.json" }
+  ],
+  "loader": {
+    "messages": ["Подготовка маршрута…", "Загрузка сцены…"],
+    "completedMessage": "MISSION READY",
+    "showPercentage": true
+  },
+  "onComplete": "china"
+}

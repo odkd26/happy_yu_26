@@ -1,0 +1,16 @@
+{
+  "key": "cat_loading",
+  "type": "loading",
+  "missionId": "cat",
+  "scenes": [
+    { "manifest": "../../assets/isa/cat/cat_1.json" },
+    { "manifest": "../../assets/isa/cat/cat_2.json" },
+    { "manifest": "../../assets/isa/cat/cat_3.json" }
+  ],
+  "loader": {
+    "messages": ["Подготовка маршрута…", "Загрузка сцены…"],
+    "completedMessage": "MISSION READY",
+    "showPercentage": true
+  },
+  "onComplete": "cat"
+}

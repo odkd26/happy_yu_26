@@ -1,0 +1,8 @@
+{
+  "key": "cnt_res_1",
+  "type": "result",
+  "missionId": "cnt",
+  "description": "Правильный ответ! Но по ощущениям тебе явно не больше 18 лет ;)",
+  "buttonText": "Далее",
+  "onContinue": "cnt_t_2"
+}

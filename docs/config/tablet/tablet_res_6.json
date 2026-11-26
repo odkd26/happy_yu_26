@@ -1,0 +1,8 @@
+{
+  "key": "tablet_res_6",
+  "type": "result",
+  "missionId": "tablet",
+  "description": "Поздравляю с +1 игрушкой в твоей коллекции",
+  "buttonText": "Ура!",
+  "onContinue": "final"
+}

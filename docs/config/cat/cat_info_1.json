@@ -1,0 +1,8 @@
+{
+  "key": "cat_info_1",
+  "type": "result",
+  "missionId": "cat",
+  "description": "А ты наблюдательная, теперь буду лучше прятать свои игрушки",
+  "buttonText": "Далее",
+  "onContinue": "cat_2"
+}

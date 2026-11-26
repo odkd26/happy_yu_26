@@ -1,0 +1,13 @@
+{
+  "key": "cat_1",
+  "type": "task",
+  "missionId": "cat",
+  "taskType": "answer",
+  "config": {
+    "question": "Сколько у меня онлайн друзей?",
+    "buttonText": "Ответить",
+    "correctAnswer": "5",
+    "errorText": "Ответ неверный"
+  },
+  "onSuccess": "cat_info_1"
+}

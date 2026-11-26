@@ -1,0 +1,11 @@
+{
+  "key": "man_1",
+  "type": "task",
+  "missionId": "man",
+  "taskType": "instruction",
+  "config": {
+    "description": "Оставшиеся коробки стоят не просто так, в этом есть глубокий смысл. Направляйся к ним для начала исследования.",
+    "buttonText": "На месте"
+  },
+  "onSuccess": "man_2"
+}

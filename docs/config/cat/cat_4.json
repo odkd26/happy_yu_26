@@ -1,0 +1,15 @@
+{
+  "key": "cat_4",
+  "type": "task",
+  "missionId": "cat",
+  "taskType": "answer",
+  "config": {
+    "question": "На что у меня самая активная реакция?",
+    "options": ["На еду", "Мышку", "После туалета :)"],
+    "buttonText": "Ответить",
+    "correctAnswer": "Мышку",
+    "errorText": "Ответ неверный"
+  },
+  "onSuccess": "cat_info_4",
+  "completesMission": true
+}

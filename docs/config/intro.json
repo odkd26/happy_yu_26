@@ -1,0 +1,12 @@
+{
+  "key": "intro",
+  "type": "intro",
+  "image": "../assets/intro/portrait.webp",
+  "title": "BIRTHDAY VICE CITY",
+  "accent": "VICE CITY",
+  "subtitle": "YU EDITION",
+  "description": "Один город. Одна героиня. Один секрет.",
+  "secondaryText": "Сегодня все правила устанавливаешь ты.",
+  "buttonText": "Начать",
+  "onContinue": "map"
+}

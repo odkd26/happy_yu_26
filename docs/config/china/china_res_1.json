@@ -1,0 +1,8 @@
+{
+  "key": "china_res_1",
+  "type": "result",
+  "missionId": "china",
+  "description": "Память все еще отличная. Будешь у нас главным хранителем всех знаний!",
+  "buttonText": "Далее",
+  "onContinue": "map"
+}

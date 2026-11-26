@@ -1,0 +1,12 @@
+{
+  "key": "tablet_3",
+  "type": "task",
+  "missionId": "tablet",
+  "taskType": "qr",
+  "config": {
+    "caption": "отсканируй найденный QR",
+    "expectedText": "Меня обнаружили",
+    "skipAfterMs": 180000
+  },
+  "onSuccess": "tablet_res_3"
+}

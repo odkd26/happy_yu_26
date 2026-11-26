@@ -1,0 +1,9 @@
+{
+  "key": "man",
+  "type": "description",
+  "missionId": "man",
+  "title": "Эй, кисуня",
+  "description": "Подарок есть? А если найду?",
+  "buttonText": "Вперед искать",
+  "onContinue": "man_1"
+}

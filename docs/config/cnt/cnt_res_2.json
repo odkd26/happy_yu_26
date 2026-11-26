@@ -1,0 +1,8 @@
+{
+  "key": "cnt_res_2",
+  "type": "result",
+  "missionId": "cnt",
+  "description": "Хорошее желание! Готова к поездке?",
+  "buttonText": "Далее",
+  "onContinue": "map"
+}

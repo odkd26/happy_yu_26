@@ -1,0 +1,14 @@
+{
+  "key": "china_2",
+  "type": "task",
+  "missionId": "china",
+  "taskType": "answer",
+  "config": {
+    "question": "Ключевое событие поездки, помимо личинок во рту?",
+    "options": ["Размножение", "Раздражение", "Предложение"],
+    "buttonText": "Ответить",
+    "correctAnswer": "Предложение",
+    "errorText": "Ответ неверный"
+  },
+  "onSuccess": "china_3"
+}

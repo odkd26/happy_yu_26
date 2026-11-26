@@ -1,0 +1,13 @@
+{
+  "key": "cnt_t_2",
+  "type": "task",
+  "missionId": "cnt",
+  "taskType": "answer",
+  "config": {
+    "question": "Сколько бирюзовых бутонов в твоем новом букете?",
+    "buttonText": "Ответить",
+    "correctAnswer": "7",
+    "errorText": "Ответ неверный"
+  },
+  "onSuccess": "cnt_t_3"
+}

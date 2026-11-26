@@ -1,0 +1,13 @@
+{
+  "key": "cnt_t_1",
+  "type": "task",
+  "missionId": "cnt",
+  "taskType": "answer",
+  "config": {
+    "question": "Начнем с простого. Сколько тебе исполнилось лет?",
+    "buttonText": "Ответить",
+    "correctAnswer": "34",
+    "errorText": "Ответ неверный"
+  },
+  "onSuccess": "cnt_res_1"
+}

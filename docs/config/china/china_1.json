@@ -1,0 +1,14 @@
+{
+  "key": "china_1",
+  "type": "task",
+  "missionId": "china",
+  "taskType": "answer",
+  "config": {
+    "question": "В каком городе мы были как мыши в коробке?",
+    "options": ["Шанхай", "Пекин", "Гайнчжоу"],
+    "buttonText": "Ответить",
+    "correctAnswer": "Пекин",
+    "errorText": "Ответ неверный"
+  },
+  "onSuccess": "china_2"
+}

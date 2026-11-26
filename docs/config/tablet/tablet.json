@@ -1,0 +1,9 @@
+{
+  "key": "tablet",
+  "type": "description",
+  "missionId": "tablet",
+  "title": "Подарков много не бывает",
+  "description": "Проверим твои навигационные способности",
+  "buttonText": "Вперед проверять",
+  "onContinue": "tablet_1"
+}

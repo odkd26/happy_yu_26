@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 1025">
+  <defs>
+    <linearGradient id="sea" x2="0.7" y2="1">
+      <stop stop-color="#1d526f"/>
+      <stop offset="1" stop-color="#348898"/>
+    </linearGradient>
+    <linearGradient id="city" x2="0" y2="1">
+      <stop stop-color="#4b4667"/>
+      <stop offset="1" stop-color="#2c263b"/>
+    </linearGradient>
+    <rect id="block" width="73" height="70" rx="5"/>
+    <rect id="short" width="63" height="50" rx="5"/>
+    <pattern id="blocks" width="470" height="448" patternUnits="userSpaceOnUse" x="80" y="100">
+      <g stroke="#baa8b9" stroke-width="1.25">
+        <use href="#short" fill="#63566e"/>
+        <use href="#block" x="118" fill="#9a758a"/>
+        <use href="#block" x="235" fill="#82748f"/>
+        <use href="#short" x="352" fill="#4f6872"/>
+        <use href="#block" y="112" fill="#9a758a"/>
+        <use href="#block" x="118" y="112" fill="#82748f"/>
+        <use href="#block" x="235" y="112" fill="#4f6872"/>
+        <use href="#short" x="352" y="112" fill="#63566e"/>
+        <use href="#block" y="224" fill="#82748f"/>
+        <use href="#block" x="118" y="224" fill="#4f6872"/>
+        <use href="#short" x="235" y="224" fill="#63566e"/>
+        <use href="#block" x="352" y="224" fill="#9a758a"/>
+        <use href="#block" y="336" fill="#4f6872"/>
+        <use href="#short" x="118" y="336" fill="#63566e"/>
+        <use href="#block" x="235" y="336" fill="#9a758a"/>
+        <use href="#block" x="352" y="336" fill="#82748f"/>
+      </g>
+    </pattern>
+  </defs>
+  <path fill="url(#sea)" d="M0 0h850v1025H0z"/>
+  <path fill="url(#city)" stroke="#d3aa92" stroke-width="36" d="M-30-30H532C588 49 627 119 596 248S554 384 591 439s43 134 16 202-57 135-19 248c16 49 35 96 68 149H-30Z"/>
+  <path fill="none" stroke="#858194" stroke-width="17" opacity=".55" d="M60 0v1025M180 0v1025M300 0v1025M420 0v1025M540 0v1025M0 80h580M0 192h580M0 304h580M0 416h580M0 528h580M0 643h580M0 755h580M0 869h580M0 980h580"/>
+  <path fill="url(#blocks)" d="M78 98h545v875H78z"/>
+  <path fill="#c4a48f" stroke="#82a6a2" stroke-width="5" d="m718 135 97 55-35 187-85-17Z"/>
+  <path fill="#59596d" d="m733 180 53 29-26 130-42-12Z"/>
+  <path fill="#c8a88e" d="M730 570q85-44 104 76l-35 156-92-40Z"/>
+  <path fill="#557667" d="M747 599q63-18 60 49l-27 117-49-22Z"/>
+  <path fill="none" stroke="#bdb0bc" stroke-width="18" d="m578 282 141-20M599 693l143-23"/>
+  <text x="713" y="1002" transform="rotate(-90 713 1002)" fill="#b9dde1" font-family="Arial, sans-serif" font-size="22" letter-spacing="1.5">ATLANTIC OCEAN</text>
+</svg>

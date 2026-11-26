@@ -1,0 +1,15 @@
+{
+  "key": "cnt_t_3",
+  "type": "task",
+  "missionId": "cnt",
+  "taskType": "answer",
+  "config": {
+    "question": "Куда бы ты хотела поехать в отпуск?",
+    "buttonText": "Ответить",
+    "options": ["Китай", "Пакистан", "Афганистан"],
+    "correctAnswer": "Китай",
+    "errorText": "Ответ неверный"
+  },
+  "onSuccess": "cnt_res_2",
+  "completesMission": true
+}

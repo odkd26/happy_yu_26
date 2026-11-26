@@ -1,0 +1,11 @@
+{
+  "key": "tablet_2",
+  "type": "task",
+  "missionId": "tablet",
+  "taskType": "instruction",
+  "config": {
+    "description": "В сААмом большом ящике, в сААмом дальнем углу ты найдешь то,\nчего там раньше не было и то, что тебя может порадовать.\nИщи скорее!",
+    "buttonText": "Нашла"
+  },
+  "onSuccess": "tablet_3"
+}

@@ -1,0 +1,9 @@
+{
+  "key": "cat",
+  "type": "description",
+  "missionId": "cat",
+  "title": "Кто в доме хозяин?",
+  "description": "Кошка - друг или начальник?",
+  "buttonText": "Вперед проверять",
+  "onContinue": "cat_1"
+}

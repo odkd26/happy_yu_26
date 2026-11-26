@@ -1,0 +1,17 @@
+{
+  "key": "cnt_loading",
+  "type": "loading",
+  "missionId": "cnt",
+  "scenes": [
+    { "manifest": "../../assets/isa/cnt/cnt_1.json" },
+    { "manifest": "../../assets/isa/cnt/cnt_2.json" },
+    { "manifest": "../../assets/isa/cnt/cnt_3.json" },
+    { "manifest": "../../assets/isa/cnt/cnt_4.json" }
+  ],
+  "loader": {
+    "messages": ["Подготовка маршрута…", "Загрузка сцены…"],
+    "completedMessage": "MISSION READY",
+    "showPercentage": true
+  },
+  "onComplete": "cnt_intro"
+}

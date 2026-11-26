@@ -1,0 +1,15 @@
+{
+  "key": "man_loading",
+  "type": "loading",
+  "missionId": "man",
+  "scenes": [
+    { "manifest": "../../assets/isa/man/man_1.json" },
+    { "manifest": "../../assets/isa/man/man_2.json" }
+  ],
+  "loader": {
+    "messages": ["Подготовка маршрута…", "Загрузка сцены…"],
+    "completedMessage": "MISSION READY",
+    "showPercentage": true
+  },
+  "onComplete": "man"
+}
